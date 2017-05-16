@@ -1,0 +1,32 @@
+page-order {
+    .order-info {
+        background-color:#E6E6E6
+    }
+
+    .ios, .md {
+ 
+    page-home {
+ 
+        ion-input {
+            background-color: map-get($colors, light);
+            padding-left: 10px;
+            color: #6c6c6c;
+        }
+ 
+        ion-label {
+            color: #6c6c6c;
+        }
+ 
+        [floating] {
+            margin-left: 10px;
+        }
+ 
+        button {
+            float: right;
+            margin-right: 20px;
+        }
+ 
+    }
+ 
+}
+}

@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon  color="menuIconColor" name="menu"></ion-icon>
+    </button>
+    <ion-title>Latest</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+{{userID}}
+  <div class="item-photos"> <img (click)="itemTapped($event, item)" *ngFor="let item of items" src="assets/img/{{item.item_photo}}"></div>
+ <div (click)="removeVar()">Clear</div>
+</ion-content>

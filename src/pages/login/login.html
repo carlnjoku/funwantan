@@ -1,0 +1,107 @@
+<ion-header>
+
+<ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon color="menuIconColor" name="menu"></ion-icon>
+    </button>
+    <ion-title color="menuIconColor">Login</ion-title>
+    
+      
+     <ion-buttons end>
+      <button [disabled]="!myForm.valid" (click)="onLogin()" ion-button>
+        <ion-badge color="menuIconColor" name="search">Done</ion-badge>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+ 
+    <ion-row>
+      <ion-col>
+        <img [@flyInBottomSlow]="logoState" src="assets/logo.png" />
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col>
+         <form [formGroup]="myForm" (ngSubmit)="onLogin()">
+        <ion-list inset [@bounceInBottom]="formState">
+         
+          <ion-item>
+              <ion-input [(ngModel)]="userInfo.email" formControlName="email" type="text" placeholder="Email"></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('email')" color="danger" padding-left>Enter your email"</p>
+
+           <ion-item>
+              <ion-input style="color:#ccc" [(ngModel)]="userInfo.password"   formControlName="password" type="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <p *ngIf="!isValid('password')" color="danger" padding-left>Enter password "</p>
+
+          
+        </ion-list>
+         </form>
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col>
+        <button (click)="onLogin()" ion-button [disabled]="!myForm.valid" class="login-button" [@fadeIn]="loginState">Login</button>
+      </ion-col>
+    </ion-row>
+ 
+  </div>
+  
+ <!-- 
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-40></ion-col>
+    <ion-col width-25>
+      <button color="light" ion-fab (click)="takePicture()">
+      <ion-icon style="font-size: 45px; color:#A1A3A5" name="ios-camera-outline"></ion-icon>
+   </button>
+
+    </ion-col>
+    <ion-col width-35></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+ <img [src]="base64Image" *ngIf="base64Image" />
+
+    <ion-list inset>
+        <form [formGroup]="myForm" (ngSubmit)="onLogin()">
+
+          
+      <div class="spacer" style="height: 4px;"></div>
+
+    
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.email" formControlName="email" type="text" placeholder="Email"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('email')" color="danger" padding-left>Insert your email"</p>
+
+     
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.password"   formControlName="password" type="text" placeholder="Password"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('password')" color="danger" padding-left>Enter password "</p>
+
+     
+    <div class="spacer" style="height: 5px;"></div>
+
+   <div style="text-align:center"><button color="menuIconColor"  small ion-button round type="submit" [disabled]="!myForm.valid">Login</button></div>
+
+   
+</form>
+
+
+ 
+    </ion-list>
+    <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
+    
+</ion-content>

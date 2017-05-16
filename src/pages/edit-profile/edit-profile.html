@@ -1,0 +1,107 @@
+
+<ion-header>
+
+   <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()"><ion-icon color="menuIconColor" name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+<figure  class="snip1336">
+    <img src="https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950" />
+    <figcaption>
+      
+      <img src="assets/images/user.jpg" alt="" class="profile" />
+      <h3>{{firstname}} {{lastname}}<span>{{occupation}}</span></h3>
+    <p>&nbsp;</p>
+    </figcaption>
+  </figure>
+ 
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-40></ion-col>
+    <ion-col width-25>
+      <button color="light" ion-fab (click)="takePicture()">
+      <ion-icon style="font-size: 45px; color:#A1A3A5" name="ios-camera-outline"></ion-icon>
+   </button>
+
+    </ion-col>
+    <ion-col width-35></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+ <img [src]="base64Image" *ngIf="base64Image" />
+ 
+    <ion-list inset>{{userID}}
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+          <ion-segment  [(ngModel)]="category" formControlName="category" color="menuIconColor">
+            <ion-segment-button style="font-size:20px"  value="wedding">
+              Wedding
+            </ion-segment-button>
+            <ion-segment-button value="blacktie">
+              Black Tie
+            </ion-segment-button>
+            <ion-segment-button value="formal">
+              Formal
+            </ion-segment-button>
+          </ion-segment>
+         
+      <div class="spacer" style="height: 4px;"></div>
+    <input [(ngModel)]="userInfo.userID" formControlName="userID" type="text">
+    <p *ngIf="!isValid('category')" color="danger" padding-left>Select category"</p>
+    
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.email" formControlName="email" type="text" placeholder="Email"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('email')" color="danger" padding-left>Insert your email"</p>
+
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.phone"  formControlName="phone" type="text" placeholder="Mobile"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('phone')" color="danger" padding-left>Insert mobile number"</p>
+
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.firstname"   formControlName="firstname" type="text" placeholder="Firstname"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('firstname')" color="danger" padding-left>Enter first name "</p>
+
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.lastname"   formControlName="lastname" type="text" placeholder="Last Name"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('lastname')" color="danger" padding-left>Enter last name "</p>
+
+     <ion-item>
+        <ion-input [(ngModel)]="userInfo.occupation"   formControlName="occupation" type="text" placeholder="Occupation"></ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('occupation')" color="danger" padding-left>Enter your occupation "</p>
+
+    
+<!--
+  <ion-item class="text-label" style="color:#AEAEAE; position:relative; left:-15px">
+        <ion-datetime formControlName="dob"  displayFormat="MMM DD, YYYY" [(ngModel)]="today"></ion-datetime>
+    </ion-item>
+    <p *ngIf="!isValid('dob')" color="danger" padding-left>Enter date of birth"</p>
+
+    <div class="spacer" style="height: 5px;"></div>
+-->
+   <div style="text-align:center"><button color="menuIconColor"  small ion-button round type="submit" [disabled]="!myForm.valid">Save</button></div>
+
+   
+</form>
+
+
+ 
+    </ion-list>
+    <!-- Angular 2 way of doing <p ngShow="myData"> bla bla </p> -->
+    
+</ion-content>

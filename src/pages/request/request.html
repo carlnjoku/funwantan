@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content> 
+
+  <figure class="snip1336">
+    <img src="https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950" />
+    <figcaption>
+      
+      <img src="assets/img/{{admin_photo}}" alt="" class="profile" />
+      <h3>{{admin_name}}<span>Stylist @ Funwantan</span></h3>
+    <p>&nbsp;</p>
+    </figcaption>
+  </figure>
+
+
+
+<div  *ngFor="let msg of messages">
+  <div style="font-size:8px; text-align: center; position:relative; top:18px">{{msg.date}}</div> 
+  <img src="assets/images/{{msg.avatar}}" alt="" class="{{msg.user_type}}" /> 
+  <div class="talk-bubble tri-right {{msg.bubble}}">
+    <div class="talktext">
+      <p>{{msg.request}} </p>
+    </div>
+  </div>
+</div>
+
+
+
+</ion-content>
+
+<ion-footer>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+ <img width="70" (click)="closeImg()" src="assets/img/{{iphoto}}" alt="" class="profile" />
+  <ion-toolbar position="bottom">
+        <input [(ngModel)]="postInfo.itemid" formControlName="itemid" type="hidden">
+        <input [(ngModel)]="postInfo.user_type" formControlName="user_type" type="hidden">
+        <input [(ngModel)]="postInfo.avatar" formControlName="avatar" type="hidden">
+        <input [(ngModel)]="postInfo.bubble" formControlName="bubble" type="hidden">
+        <input [(ngModel)]="postInfo.item_photo" formControlName="item_photo" type="hidden">
+        <input [(ngModel)]="postInfo.admin_id" formControlName="adminID" type="hidden">
+        <input [(ngModel)]="postInfo.admin_name" formControlName="admin_name" type="hidden">
+        <input [(ngModel)]="postInfo.userID" formControlName="userID" type="hidden">
+        <ion-textarea [(ngModel)]="postInfo.request" formControlName="request" placeholder="Type your message here" ></ion-textarea>
+        <p *ngIf="!isValid('request')" color="danger" padding-left>Enter your request"</p>
+
+        <ion-buttons end>
+            <button type="button" (click)="onSubmit()" royal> Send <ion-icon name="send"></ion-icon></button>
+        </ion-buttons>
+  </ion-toolbar>
+ </form>
+</ion-footer>

@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="menuIconColor"></ion-icon>
+    </button>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+
+  <ion-toolbar color="funwantan">
+    
+    <ion-searchbar  [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+  
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+
+<ion-content padding>
+<div *ngIf="searching" class="spinner-container" style="align:center">
+        <ion-spinner></ion-spinner>
+    </div>
+  
+
+    <div class="item-photos"> <img (click)="itemTapped($event, item)" *ngFor="let item of items" src="assets/img/{{item.item_photo}}"></div>
+
+</ion-content>

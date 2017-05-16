@@ -1,0 +1,39 @@
+
+<ion-content padding>
+<div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+
+ 
+    <ion-row>
+      <ion-col>
+        <img [@flyInBottomSlow]="logoState" src="assets/logo.png" />
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col>
+        <ion-list inset [@fadeIn2]="formState">
+ 
+        
+            <p style="color:#A4A4A4">Whatever the event, our expert 
+              Personal Stylists & Shoppers are at 
+              hand to give you the best look</p>
+          
+ 
+          
+ 
+        </ion-list>
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col>
+        <button (click)="animateToLogin()" ion-button class="login-button" [@fadeIn]="loginState">Login</button>
+      </ion-col>
+      <ion-col>
+        <button (click)="animateToSignup()" light ion-button class="signup-button" [@fadeIn]="loginState">Signup</button>
+      </ion-col>
+    </ion-row>
+ 
+  </div>
+
+  </ion-content>

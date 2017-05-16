@@ -1,0 +1,92 @@
+
+<ion-header>
+
+   <ion-navbar color="orderNav">
+    <ion-title color="menuIconColor">Order</ion-title>
+    <ion-buttons end>
+      <button color="menuIconColor" ion-button icon-only (click)="closeBuyItem()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+  
+
+<ion-content>
+ 
+
+<ion-grid class="order-info">
+  <ion-row>
+    <ion-col col-9 push-3>
+      <h5 style="line-height:0.6px"><b>$ {{price}}</b></h5>
+      <p>{{order_type}}</p>
+    </ion-col>
+    <ion-col col-3 pull-9>
+      <h5 style="line-height:0.6px"><b>{{title}}</b></h5>
+      <p>Item ID : {{itemID}}</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+
+  <ion-row>
+    <ion-col col-lg-12>
+      <ion-item>
+        <ion-label  floating>Name On Card</ion-label>
+        <ion-input style="line-height:1.6px" type="tel" [(ngModel)]="firstName"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-lg-12>
+      <ion-item>
+        <ion-label floating>Card Number</ion-label>
+        <ion-input type="tel" [(ngModel)]="cardNumber"></ion-input>
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+
+<ion-row>
+    <ion-col col-lg-4>
+      <ion-item>
+        <ion-label floating>Expiry Date</ion-label>
+        <ion-input type="tel" [(ngModel)]="cardExpiry"></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-lg-4>
+      <ion-item>
+        <ion-label floating>Security Code</ion-label>
+        <ion-input type="tel" [(ngModel)]="orderCode"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <br>
+
+  
+
+</ion-grid>
+
+
+</ion-content>
+
+<ion-footer style="height:12%" >
+  
+  <ion-navbar padding color="funwantan">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()"> Redeem Coupon</button>
+    </ion-buttons>
+
+      
+      
+      
+      <ion-buttons end>
+        <button ion-button color="menuIconColor" (click)="save()">Pay Now</button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-footer>

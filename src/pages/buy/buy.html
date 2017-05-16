@@ -1,0 +1,47 @@
+
+<ion-header>
+
+   <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeBuyItem()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-img (click)="expandPics()" width="100%" height="100%" src="assets/img/{{iphoto}}"></ion-img>
+
+<div class="my-overlay" padding [hidden]="overlayHidden">
+    <button half (click)="hideOverlay()">Click me</button>
+</div>
+
+</ion-content>
+
+<ion-footer style="height:12%" >
+  <form [formGroup]="myForm" (ngSubmit)="onSave()">
+  <ion-navbar padding color="funwantan">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()"> Cancel</button>
+    </ion-buttons>
+
+      
+      <ion-input style="background-color:#E6E6E6; color:#848484; height:30%; padding-left:5px; position:relative; bottom:1px" [(ngModel)]="postInfo.size" formControlName="size" type="text" placeholder="Enter Size"></ion-input>
+      <input [(ngModel)]="postInfo.userID" formControlName="userID" type="hidden">
+      <input [(ngModel)]="postInfo.adminID" formControlName="adminID" type="hidden">
+      <input [(ngModel)]="postInfo.itemID" formControlName="itemID" type="hidden">
+      <input [(ngModel)]="postInfo.sale_price" formControlName="sale_price" type="hidden">
+      <input [(ngModel)]="postInfo.brandID" formControlName="brandID" type="hidden">
+      <input [(ngModel)]="postInfo.iphoto" formControlName="iphoto" type="hidden">
+      <input [(ngModel)]="postInfo.title" formControlName="title" type="hidden">
+      <input [(ngModel)]="postInfo.order_type" formControlName="order_type" type="hidden">
+      
+      <ion-buttons end>
+        <button color="header" small ion-button round type="submit" [disabled]="!myForm.valid">Save</button>
+      </ion-buttons>
+  </ion-navbar>
+  </form>
+</ion-footer>

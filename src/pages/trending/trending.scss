@@ -1,0 +1,21 @@
+
+.item-photos {
+   /* Prevent vertical gaps */
+   line-height: 0;
+   
+   -webkit-column-count: 2;
+   -webkit-column-gap:   5px;
+   -moz-column-count:    2;
+   -moz-column-gap:      5px;
+   column-count:         2;
+   column-gap:           5px;
+  
+  
+}
+
+.item-photos img {
+  /* Just in case there are inline attributes */
+  width:100%!important;
+  height: auto !important;
+   padding-bottom: 5px;
+}

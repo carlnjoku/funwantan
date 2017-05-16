@@ -1,0 +1,116 @@
+<ion-header>
+
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon color="menuIconColor" name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+   <ion-buttons end>
+      <button ion-button icon-only (click)="goToEdit()"><ion-icon color="menuIconColor" name="create"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content elastic-header>
+
+
+  <figure *ngFor="let me of userDetails"  class="snip1336">
+    <img src="https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950" />
+    <figcaption>
+      
+      <img src="assets/images/user.jpg" alt="" class="profile" />
+      <h3>{{me.firstname}} {{me.lastname}}<span>{{me.occupation}}</span></h3>
+    <p>&nbsp;</p>
+    </figcaption>
+  </figure>
+ 
+
+
+      <div>
+        <div>
+          <ion-segment color="messurement" [(ngModel)]="seg_buttons">
+            <ion-segment-button style="border-radius:0px; font-size:18px" color="funwantan"  value="sizing">
+              Sizing
+            </ion-segment-button>
+            <ion-segment-button value="liked" style="font-size:18px">
+              Liked
+            </ion-segment-button>
+            <ion-segment-button style="border-radius:0px; font-size:18px" value="bought">
+              Bought
+            </ion-segment-button>
+          </ion-segment>
+      </div>
+
+        <div [ngSwitch]="seg_buttons">
+          <ion-list *ngSwitchCase="'sizing'">
+          
+              <ion-item>
+                  <ion-label color="messurement">Height</ion-label>
+                  <ion-badge style="font-size:14px" color="messurement" item-right><ion-multi-picker id="default" [(ngModel)] = "height" (ngModelChange)="editHeight()" item-content [multiPickerColumns]="heightList"></ion-multi-picker></ion-badge>
+              </ion-item>
+              <ion-item>
+                  <ion-label color="messurement">Shirt Size</ion-label>
+                  <ion-badge style="font-size:14px" color="messurement" item-right><ion-multi-picker  id="default" [(ngModel)] = "shirt" (ngModelChange)="editShirt()" item-content [multiPickerColumns]="shirtList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Sleeve Size</ion-label>
+                  <ion-badge style="font-size:14px" style="font-size:14px"  color="messurement" item-right><ion-multi-picker  id="default" [(ngModel)] = "sleeve" (ngModelChange)="editSleeve()" item-content [multiPickerColumns]="sleeveList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Neck Size</ion-label>
+                  <ion-badge  color="messurement"  style="font-size:14px" item-right><ion-multi-picker  id="default" [(ngModel)] = "neck" (ngModelChange)="editNeck()" item-content [multiPickerColumns]="neckList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Waist Size</ion-label>
+                  <ion-badge  color="messurement" style="font-size:14px" item-right><ion-multi-picker  id="default" [(ngModel)] = "waist" (ngModelChange)="editWaist()" item-content [multiPickerColumns]="waistList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Pant Inseam</ion-label>
+                  <ion-badge  color="messurement" style="font-size:14px" item-right><ion-multi-picker  id="default" [(ngModel)] = "pant" (ngModelChange)="editPantInseam()" item-content [multiPickerColumns]="pantList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Shoes Size</ion-label>
+                  <ion-badge  color="messurement"  style="font-size:14px" item-right><ion-multi-picker  id="default" [(ngModel)] = "shoe" (ngModelChange)="editShoe()" item-content [multiPickerColumns]="shoeList"></ion-multi-picker></ion-badge>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="messurement">Suit Size</ion-label>
+                  <ion-badge  color="messurement" style="font-size:14px" item-right><ion-multi-picker  id="default" [(ngModel)] = "suit" (ngModelChange)="editSuit()" item-content [multiPickerColumns]="suitList"></ion-multi-picker></ion-badge>
+              </ion-item>
+             
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'liked'">
+          
+          
+             <!-- <div class="item-photos"> <img (click)="itemTapped($event, item)" *ngFor="let item of items" src="assets/img/{{item.item_photo}}"></div> -->
+
+
+
+          </ion-list>
+      
+
+          <ion-list *ngSwitchCase="'bought'">
+            <ion-item>
+              
+             <h2>You have not bought anything yet...</h2>
+            </ion-item>
+            
+          </ion-list>
+        </div> 
+    </div>
+
+
+    
+    
+ 
+</ion-content>
+
+
+
